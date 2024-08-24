@@ -7,9 +7,9 @@ app.secret_key = 'many random bytes'
 
 # PostgreSQL configuration
 app.config['DB_NAME'] = 'crud'
-app.config['DB_HOST'] = 'localhost'
+app.config['DB_HOST'] = '34.202.71.117'
 app.config['DB_USER'] = 'postgres'
-app.config['DB_PASSWORD'] = 'aarav'
+app.config['DB_PASSWORD'] = '12345678'
 app.config['DB_PORT'] = '5432'
 
 def get_db_connection():
