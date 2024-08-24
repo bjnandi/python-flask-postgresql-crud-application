@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: py-app-svc
+  namespace: default
+spec:
+  rules:
+  - host: bjtechlife.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: exapy-app-svc
+            port:
+              number: 8000
