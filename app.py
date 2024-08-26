@@ -78,15 +78,9 @@ def update():
         return redirect(url_for('Index'))
     
 
+# For code quality test by Sonarqube
 def multiply(a, b):
     return a * b
-
-# def badFunctionName(x):
-#     a = 0
-#     if x > 10:
-#         return True
-#     else:
-#         return False
 
 
 if __name__ == "__main__":
