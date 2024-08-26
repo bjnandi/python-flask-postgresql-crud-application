@@ -45,7 +45,7 @@ pipeline {
             }
             // def scannerHome = tool name: 'python-app', type: 'hudson.plugins.sonar.SonarRunnerInstallation';
             steps {
-                withSonarQubeEnv(credentialsId: 'sonerqube', installationName: 'sonerqube') {
+                withSonarQubeEnv(credentialsId: 'sonerqube', installationName: 'python-app') {
                     
                 sh "${scannerHome}/bin/sonar-scanner"
                 }
