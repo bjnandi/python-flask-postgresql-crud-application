@@ -53,5 +53,5 @@ spec:
         # - name: DB_PASSWORD
         #   value: mypassword
 
-        # - name: DB_HOST  
+        # - name: DB_HOST  #ddd
         #   value: mongodb-0.mongodb-svc.default.svc.cluster.local
