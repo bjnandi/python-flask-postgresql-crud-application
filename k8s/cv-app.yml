@@ -4,7 +4,7 @@ metadata:
   name: cv-app-svc
   namespace: default
   labels:
-    app: cv-app-svc
+    app: cv-app
 spec:
   type: NodePort 
   ports:
