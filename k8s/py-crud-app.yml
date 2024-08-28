@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: py-app
-        image: bjnandi/python-crud-app:v1.0.91
+        image: bjnandi/python-crud-app:v1.0.92
         ports:
         - containerPort: 8000
         # env:
