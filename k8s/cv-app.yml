@@ -34,6 +34,6 @@ spec:
     spec:
       containers:
       - name: cv-app
-        image: bjnandi/laravel-aws-eks-latest:latest
+        image: bjnandi/cv:latest
         ports:
         - containerPort: 80
