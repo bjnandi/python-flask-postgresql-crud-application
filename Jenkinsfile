@@ -55,8 +55,13 @@ pipeline {
 
 
         stage('Trigger Manifest Update') {
-            echo "triggering updatemanifestjob"
-            build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+            steps {
+                script {
+                    sh 'echo "triggering updatemanifestjob"'
+                    //sh 'docker tag python-app bjnandi/python-app:v1.0.${BUILD_NUMBER}'
+                }
+                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+            }
         }
     }
 }
