@@ -54,30 +54,9 @@ pipeline {
         // }
 
 
-        stage('Update GIT') {
-            steps {
-                script {
-                    //catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                        withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                            //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
-                            sh 'git config user.email nbiswajit94@gmail.com'
-                            sh 'git config user.name Biswajit Nandi'
-                            sh 'pwd'
-                            sh 'ls'
-                            dir('k8s') {
-                                sh """
-                                cat py-crud-app.yml
-                                sed -i 's+python-crud-app:v1.0.*+python-crud-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yml
-                                cat py-crud-app.yml
-                                git add .
-                                git commit -m 'Done by Jenkins Job changemanifest: ${BUILD_NUMBER}'
-                                git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/python-flask-postgresql-crud-application.git HEAD:main
-                                """
-                            }
-                        }
-                    //}
-                }
-            }
+        stage('Trigger Manifest Update') {
+                echo "triggering updatemanifestjob"
+                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
         }
     }
 }
