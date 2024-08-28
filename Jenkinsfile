@@ -36,8 +36,8 @@ pipeline {
         stage('Build and Tag Docker Image') {
             steps {
                 script {
-                    sh 'docker build . -t bjnandi/python-app:v1.0.${BUILD_NUMBER}'
-                    //sh 'docker tag python-app bjnandi/python-app:v1.0.${BUILD_NUMBER}'
+                    sh 'docker build . -t bjnandi/python-app-1:v1.0.${BUILD_NUMBER}'
+                    //sh 'docker tag python-app bjnandi/python-app-1:v1.0.${BUILD_NUMBER}'
                 }
             }
         }
