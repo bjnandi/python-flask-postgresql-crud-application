@@ -62,7 +62,7 @@ pipeline {
                             //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                             sh "git config user.email nbiswajit94@gmail.com"
                             sh "git config user.name Biswajit Nandi"
-                            //sh "git switch master"
+                            //sh "git switch master11"
                             sh "cat py-crud-app.yml"
                             sh "sed -i 's+bjnandi/python-app:v1.0.*+bjnandi/python-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yml"
                             sh "cat py-crud-app.yml"
