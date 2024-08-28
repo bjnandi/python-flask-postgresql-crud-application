@@ -69,10 +69,10 @@ pipeline {
                                 sh 'cat py-crud-app.yml'
                                 sh 'ls'
                                 sh 'pwd'
-                                sh "sed -i 's+bjnandi/python-app:v1.0.*+bjnandi/python-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yml"
-                                sh "cat py-crud-app.yml"
-                                sh "git add ."
-                                sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
+                                sh 'sed -i 's+bjnandi/python-app:v1.0.*+bjnandi/python-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yml'
+                                sh 'cat py-crud-app.yml'
+                                sh 'git add .'
+                                sh 'git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}''
                                 sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/python-flask-postgresql-crud-application.git HEAD:main"
                             }
                         }
