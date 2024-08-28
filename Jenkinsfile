@@ -65,17 +65,15 @@ pipeline {
                             sh 'pwd'
                             sh 'ls'
                             dir('k8s') {
-                                //sh "git switch master11"
-                                sh 'cat py-crud-app.yml'
-                                sh 'ls'
-                                sh 'pwd'
                                 sh """
+                                cat py-crud-app.yml
                                 sed -i 's+python-crud-app:v1.0.*+python-crud-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yml
                                 cat py-crud-app.yml
                                 git add .
                                 git commit -m 'Done by Jenkins Job changemanifest: ${BUILD_NUMBER}'
+                                git push
+                                // git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/python-flask-postgresql-crud-application.git HEAD:main
                                 """
-                                sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/python-flask-postgresql-crud-application.git HEAD:main"
                             }
                         }
                     //}
