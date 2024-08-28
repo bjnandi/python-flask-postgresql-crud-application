@@ -64,7 +64,7 @@ pipeline {
                             sh 'git config user.name Biswajit Nandi'
                             sh 'pwd'
                             sh 'ls'
-                            sh 'cd python-flask-postgresql-crud-application/k8s'
+                            cd k8s
                             //sh "git switch master11"
                             sh 'cat py-crud-app.yml'
                             sh 'ls'
