@@ -60,15 +60,15 @@ pipeline {
                     //catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                         withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                             //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
-                            sh "git config user.email nbiswajit94@gmail.com"
-                            sh "git config user.name Biswajit Nandi"
-                            sh "pwd"
-                            sh "ls"
-                            sh "cd k8s/"
+                            sh 'git config user.email nbiswajit94@gmail.com'
+                            sh 'git config user.name Biswajit Nandi'
+                            sh 'pwd'
+                            sh 'ls'
+                            sh 'cd k8s'
                             //sh "git switch master11"
-                            sh "cat py-crud-app.yml"
-                            sh "ls"
-                            sh "pwd"
+                            sh 'cat py-crud-app.yml'
+                            sh 'ls'
+                            sh 'pwd'
                             sh "sed -i 's+bjnandi/python-app:v1.0.*+bjnandi/python-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yml"
                             sh "cat py-crud-app.yml"
                             sh "git add ."
