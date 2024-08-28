@@ -62,7 +62,6 @@ pipeline {
                             //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                             sh 'git config user.email nbiswajit94@gmail.com'
                             sh 'git config user.name Biswajit Nandi'
-                            sh 'git config --global --unset http.proxy'
                             sh 'pwd'
                             sh 'ls'
                             dir('k8s') {
