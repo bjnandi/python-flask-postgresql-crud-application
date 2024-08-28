@@ -42,13 +42,33 @@ pipeline {
             }
         }
         
-        stage('Push the Docker Image to DockerHub') {
-            steps {
-                script {
-                    withCredentials([string(credentialsId: 'docker_hub', variable: 'docker_hub')]) {
-                    sh 'echo "${docker_hub}" | docker login -u bjnandi --password-stdin'
+        // stage('Push the Docker Image to DockerHub') {
+        //     steps {
+        //         script {
+        //             withCredentials([string(credentialsId: 'docker_hub', variable: 'docker_hub')]) {
+        //             sh 'echo "${docker_hub}" | docker login -u bjnandi --password-stdin'
+        //             }
+        //             sh 'docker push bjnandi/python-app:v1.0.${BUILD_NUMBER}'
+        //         }
+        //     }
+        // }
+
+
+        stage('Update GIT') {
+            script {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
+                        sh "git config user.email nbiswajit94@gmail.com"
+                        sh "git config user.name Biswajit Nandi"
+                        //sh "git switch master"
+                        sh "cat py-crud-app.yml"
+                        sh "sed -i 's+bjnandi/python-app:v1.0.*+bjnandi/python-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yaml"
+                        sh "cat py-crud-app.yml"
+                        sh "git add ."
+                        sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
+                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:main"
                     }
-                    sh 'docker push bjnandi/python-app:v1.0.${BUILD_NUMBER}'
                 }
             }
         }
