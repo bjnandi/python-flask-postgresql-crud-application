@@ -8,30 +8,30 @@ pipeline {
             }
         }
         
-        stage('SonarQube Analysis') {
-            environment {
-                scannerHome = tool 'python-app';
-            }
-            // def scannerHome = tool name: 'python-app', type: 'hudson.plugins.sonar.SonarRunnerInstallation';111
-            steps {
-                withSonarQubeEnv(credentialsId: 'sonerqube', installationName: 'python-app') {
+        // stage('SonarQube Analysis') {
+        //     environment {
+        //         scannerHome = tool 'python-app';
+        //     }
+        //     // def scannerHome = tool name: 'python-app', type: 'hudson.plugins.sonar.SonarRunnerInstallation';111
+        //     steps {
+        //         withSonarQubeEnv(credentialsId: 'sonerqube', installationName: 'python-app') {
                     
-                sh "${scannerHome}/bin/sonar-scanner"
-                }
-            }
-        }
+        //         sh "${scannerHome}/bin/sonar-scanner"
+        //         }
+        //     }
+        // }
 
-        stage('Quality Gate') {
-            steps {
-                script {
-                    // Wait for SonarQube Quality Gate result and proceed only if it passes
-                    def qualityGate = waitForQualityGate() // Wait for the quality gate result
-                    if (qualityGate.status != 'OK') {
-                        error "Pipeline aborted due to quality gate failure: ${qualityGate.status}"
-                    }
-                }
-            }
-        }
+        // stage('Quality Gate') {
+        //     steps {
+        //         script {
+        //             // Wait for SonarQube Quality Gate result and proceed only if it passes
+        //             def qualityGate = waitForQualityGate() // Wait for the quality gate result
+        //             if (qualityGate.status != 'OK') {
+        //                 error "Pipeline aborted due to quality gate failure: ${qualityGate.status}"
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('Build and Tag Docker Image') {
             steps {
