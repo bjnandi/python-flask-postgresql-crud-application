@@ -67,6 +67,8 @@ pipeline {
                             sh "cd k8s/"
                             //sh "git switch master11"
                             sh "cat py-crud-app.yml"
+                            sh "ls"
+                            sh "pwd"
                             sh "sed -i 's+bjnandi/python-app:v1.0.*+bjnandi/python-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yml"
                             sh "cat py-crud-app.yml"
                             sh "git add ."
