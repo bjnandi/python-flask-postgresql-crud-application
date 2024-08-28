@@ -42,16 +42,16 @@ pipeline {
             }
         }
         
-        // stage('Push the Docker Image to DockerHub') {
-        //     steps {
-        //         script {
-        //             withCredentials([string(credentialsId: 'docker_hub', variable: 'docker_hub')]) {
-        //             sh 'echo "${docker_hub}" | docker login -u bjnandi --password-stdin'
-        //             }
-        //             sh 'docker push bjnandi/python-app:v1.0.${BUILD_NUMBER}'
-        //         }
-        //     }
-        // }
+        stage('Push the Docker Image to DockerHub') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'docker_hub', variable: 'docker_hub')]) {
+                    sh 'echo "${docker_hub}" | docker login -u bjnandi --password-stdin'
+                    }
+                    sh 'docker push bjnandi/python-app-1:v1.0.${BUILD_NUMBER}'
+                }
+            }
+        }
 
 
         stage('Trigger Manifest Update') {
