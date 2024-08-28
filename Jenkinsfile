@@ -70,7 +70,7 @@ pipeline {
                                 sh 'ls'
                                 sh 'pwd'
                                 sh """
-                                sed -i 's+bjnandi/python-app:v1.0.*+bjnandi/python-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yml
+                                sed -i 's+python-crud-app:v1.0.*+python-crud-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yml
                                 cat py-crud-app.yml
                                 git add .
                                 git commit -m 'Done by Jenkins Job changemanifest: ${BUILD_NUMBER}'
