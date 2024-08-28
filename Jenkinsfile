@@ -71,8 +71,7 @@ pipeline {
                                 cat py-crud-app.yml
                                 git add .
                                 git commit -m 'Done by Jenkins Job changemanifest: ${BUILD_NUMBER}'
-                                git push
-                                // git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/python-flask-postgresql-crud-application.git HEAD:main
+                                git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/python-flask-postgresql-crud-application.git HEAD:main
                                 """
                             }
                         }
