@@ -64,7 +64,7 @@ pipeline {
                             sh "git config user.name Biswajit Nandi"
                             //sh "git switch master"
                             sh "cat py-crud-app.yml"
-                            sh "sed -i 's+bjnandi/python-app:v1.0.*+bjnandi/python-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yaml"
+                            sh "sed -i 's+bjnandi/python-app:v1.0.*+bjnandi/python-app:v1.0.${BUILD_NUMBER}+g' py-crud-app.yml"
                             sh "cat py-crud-app.yml"
                             sh "git add ."
                             sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
