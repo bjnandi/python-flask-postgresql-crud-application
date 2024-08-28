@@ -36,13 +36,13 @@ pipeline {
         stage('Build and Tag Docker Image') {
             steps {
                 script {
-                    sh 'docker build . -t python-app:v1.0.${BUILD_NUMBER}'
-                    sh 'docker tag python-app bjnandi/python-app:v1.0.${BUILD_NUMBER}'
+                    sh 'docker build . -t bjnandi/python-app:v1.0.${BUILD_NUMBER}'
+                    //sh 'docker tag python-app bjnandi/python-app:v1.0.${BUILD_NUMBER}'
                 }
             }
         }
         
-        stage('Push the Docker Image to DockerHUb') {
+        stage('Push the Docker Image to DockerHub') {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'docker_hub', variable: 'docker_hub')]) {
