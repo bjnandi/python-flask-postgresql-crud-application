@@ -54,14 +54,14 @@ pipeline {
         }
 
 
-        stage('Trigger Manifest Update') {
-            steps {
-                script {
-                    sh 'echo "triggering updatemanifest job"'
-                }
-                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
-            }
-        }
+        // stage('Trigger Manifest Update') {
+        //     steps {
+        //         script {
+        //             sh 'echo "triggering updatemanifest job"'
+        //         }
+        //         build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+        //     }
+        // }
     }
 }
 

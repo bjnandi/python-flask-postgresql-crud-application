@@ -1,16 +1,17 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
 import psycopg2
+import os
 from psycopg2.extras import DictCursor
 
 app = Flask(__name__)
 app.secret_key = 'many random bytes'
 
 # PostgreSQL configuration
-app.config['DB_NAME'] = 'crud'
-app.config['DB_HOST'] = '34.202.71.117'
-app.config['DB_USER'] = 'postgres'
-app.config['DB_PASSWORD'] = '12345678'
-app.config['DB_PORT'] = '5432'
+app.config['DB_NAME'] = os.getenv('POSTGRES_DB', 'crud')
+app.config['DB_HOST'] = os.getenv('POSTGRES_HOST', '34.202.71.117')
+app.config['DB_USER'] = os.getenv('POSTGRES_USER', 'postgres')
+app.config['DB_PASSWORD'] = os.getenv('POSTGRES_PASSWORD', '12345678')
+app.config['DB_PORT'] = os.getenv('POSTGRES_PORT', '5432')
 
 def get_db_connection():
     conn = psycopg2.connect(
