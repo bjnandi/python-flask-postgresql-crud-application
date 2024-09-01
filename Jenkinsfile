@@ -10,7 +10,7 @@ pipeline {
         
         stage('SonarQube Analysis') {
             environment {
-                scannerHome = tool 'sonarqube_server';
+                scannerHome = tool 'SonarQube_Scanner';
             }
             // def scannerHome = tool name: 'python-app', type: 'hudson.plugins.sonar.SonarRunnerInstallation';111
             steps {
