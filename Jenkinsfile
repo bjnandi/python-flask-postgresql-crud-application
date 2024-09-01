@@ -36,8 +36,8 @@ pipeline {
         stage('Build and Tag Docker Image') {
             steps {
                 script {
-                    sh 'docker build . -t bjnandi/python-app-1:v1.0.${BUILD_NUMBER}'
-                    //sh 'docker tag python-app bjnandi/python-app-1:v1.0.${BUILD_NUMBER}'
+                    sh 'docker build . -t bjnandi/python-crud-app:v1.0.${BUILD_NUMBER}'
+                    //sh 'docker tag python-app bjnandi/python-crud-app:v1.0.${BUILD_NUMBER}'
                 }
             }
         }
@@ -48,7 +48,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'docker_hub', variable: 'docker_hub')]) {
                     sh 'echo "${docker_hub}" | docker login -u bjnandi --password-stdin'
                     }
-                    sh 'docker push bjnandi/python-app-1:v1.0.${BUILD_NUMBER}'
+                    sh 'docker push bjnandi/python-crud-app:v1.0.${BUILD_NUMBER}'
                 }
             }
         }
