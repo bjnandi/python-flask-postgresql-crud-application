@@ -59,7 +59,7 @@ pipeline {
                 script {
                     sh 'echo "triggering updatemanifest job"'
                 }
-                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+                build job: 'sonarqube', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
             }
         }
     }
