@@ -78,15 +78,15 @@ def update():
         flash("Data Updated Successfully")
         return redirect(url_for('Index'))
     
-# # =======================================
-# # For code quality test by Sonarqube   
-# def badFunctionName(x):
-#     a = 0
-#     if x > 10:
-#         return True
-#     else:
-#         return False
-# # ========================================
+# =======================================
+# For code quality test by Sonarqube   
+def badFunctionName(x):
+    a = 0
+    if x > 10:
+        return True
+    else:
+        return False
+# ========================================
 
 if __name__ == "__main__":
     app.run(debug=True)
