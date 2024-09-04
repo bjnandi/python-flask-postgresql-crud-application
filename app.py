@@ -79,7 +79,7 @@ def update():
         return redirect(url_for('Index'))
     
 # =======================================
-# For code quality test by Sonarqube  
+# For code quality test by Sonarqube   
 def badFunctionName(x):
     a = 0
     if x > 10:
