@@ -34,7 +34,7 @@ Thank you for your support and interest in my work! <br>
 Happy coding! 💻✨
 <br><br>
 
-**🙏 Special Thanks:** A huge thank you to [@aaravchauhan18](https://github.com/aaravchauhan18) for amazing java base [python-flask-postgresql-crud-application](https://github.com/aaravchauhan18/python-flask-postgresql-crud-application/) projects!
+**🙏 Special Thanks:** A huge thank you to [@aaravchauhan18](https://github.com/aaravchauhan18) for amazing python base [python-flask-postgresql-crud-application](https://github.com/aaravchauhan18/python-flask-postgresql-crud-application/) projects!
 
 <hr>
 
