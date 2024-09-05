@@ -8,7 +8,7 @@ Our automated CI/CD pipeline uses Kubernetes, Argo CD, Jenkins, SonarQube, Postg
 
 # Demo
 [![Automated Jenkins CI/CD Pipeline using Kubernetes (Kubeadm) with SonarQube & Argo CD for Python App
- Zero Downtime TechTips CloudComputing DevOps DevOpsTools DevOpsPipeline DevOpsLife bjnandi biswajitnandi Biswajit Nandi](/static/Automated Jenkins CICD Pipeline using Kubernetes (Kubeadm) with SonarQube & Argo CD for Python App.gif)](https://github.com/bjnandi/python-flask-postgresql-crud-application "Automated Jenkins CI/CD Pipeline using Kubernetes (Kubeadm) with SonarQube & Argo CD for Python App")
+ Zero Downtime TechTips CloudComputing DevOps DevOpsTools DevOpsPipeline DevOpsLife bjnandi biswajitnandi Biswajit Nandi](/static/Automated%20Jenkins%20CICD%20Pipeline%20using%20Kubernetes%20(Kubeadm)%20with%20SonarQube%20%26%20Argo%20CD%20for%20Python%C2%A0App.gif)](https://github.com/bjnandi/python-flask-postgresql-crud-application "Automated Jenkins CI/CD Pipeline using Kubernetes (Kubeadm) with SonarQube & Argo CD for Python App")
 
 
 ## For more Details
